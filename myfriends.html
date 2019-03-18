@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Firebase Friend Database</title>
+<link rel="stylesheet" href="mystyle.css"/>
+<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyAVs4PriiNC-nJdC1MO-v-_7NQnJkKCuAM",
+    authDomain: "cis371hw7-9395c.firebaseapp.com",
+    databaseURL: "https://cis371hw7-9395c.firebaseio.com",
+    projectId: "cis371hw7-9395c",
+    storageBucket: "cis371hw7-9395c.appspot.com",
+    messagingSenderId: "598070523787"
+    };
+    firebase.initializeApp(config);
+</script>
+
+</head>
+
+<body>
+    <script type="text/javascript" src="fireJS.js"></script>
+    <h1>Database of Friends</h1>
+
+    <div class="fileUpload">Select database for upload:
+        <input id="upload" type="file">
+        <button onclick="processUpload()">Upload</button>
+    </div>
+
+    <div class="friendSearch">
+        <p>Search for Friends</p>
+        Enter name of friend:<input type="text" id="searchText">
+        <button onclick="searchFriends()">Search</button>
+    </div>
+
+    <div id="searchTable" class="hidden">
+        <p>Search Results</p>
+        <table id="resultsTable">
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Age</th>
+            </tr>
+        </table>
+    </div>     
+
+    <div class="hidden">
+        <p class="center">All Friends in Database</p>
+        <p class="center" id="totalRecords"></p>
+        <table id="friendTable">
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>     
+    
+    <div id="insertFriendData">
+        <p class="fAdd">Add New Friend to Database</p>
+        <label>Name:</label> <input type="text" id="nameResult">
+        <label>Phone Number:</label> <input type="text" id="phoneResult">
+        <label>Age:</label> <input type="text" id="ageResult">
+        <button onclick="checkNewFriend()">Add New Friend</button>
+    </div>    
+</body>
+</html>
